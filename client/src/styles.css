@@ -1,0 +1,15 @@
+body { font-family: system-ui, sans-serif; margin: 0; background: #f6f6f6; color: #222; }
+.page { max-width: 720px; margin: 32px auto; padding: 0 16px; }
+section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.products { list-style: none; padding: 0; margin: 0; }
+.product { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+.product:last-child { border-bottom: none; }
+.actions { display: flex; gap: 8px; }
+.actions input { width: 56px; }
+button { cursor: pointer; padding: 6px 12px; }
+button:disabled { cursor: not-allowed; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #eee; }
+.totals { display: grid; grid-template-columns: 1fr auto; gap: 4px; margin-top: 12px; }
+.totals dd { margin: 0; text-align: right; }
+.error { background: #fdecea; color: #a12622; padding: 10px 12px; border-radius: 6px; margin-bottom: 16px; }
