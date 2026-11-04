@@ -28,7 +28,7 @@ You may use any test tools you like, for example Jest or Vitest, Supertest, Reac
 
 ## Running the App
 
-You need **Node.js 18 or newer**. No database setup is needed; SQLite creates a local file automatically.
+You need **Node.js 20 or newer** (the current LTS version is recommended). Check with `node -v`. No database setup is needed; SQLite creates a local file automatically.
 
 **Backend** (runs on http://localhost:4000):
 
@@ -47,6 +47,23 @@ npm run dev
 ```
 
 Open http://localhost:5173 in your browser.
+
+### Troubleshooting
+
+**`tsx is not recognized` / `tsx: command not found` / `vite is not recognized`**
+`npm install` was not run in that folder, or it failed partway. Run `npm install` inside **both** `server/` and `client/`, and check that it finishes without errors.
+
+**`npm install` fails in `server/` with errors about `better-sqlite3`, `node-gyp` or Python**
+Your Node.js version is probably too old. Install Node.js 20 or newer, then reinstall:
+
+```bash
+cd server
+rm -rf node_modules      # Windows PowerShell: Remove-Item -Recurse -Force node_modules
+npm install
+```
+
+**Port 4000 or 5173 is already in use**
+Stop whatever is using the port, or start the backend on another port, e.g. `PORT=4001 npm run dev` (Mac/Linux) or `$env:PORT=4001; npm run dev` (Windows PowerShell). If you change the backend port, also update the proxy in `client/vite.config.ts`.
 
 ### Useful for testing
 
