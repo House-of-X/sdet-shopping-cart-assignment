@@ -6,7 +6,8 @@
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
     "db:reset": "tsx scripts/reset-db.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test":"npx jest --passWithNoTests --testMatch=**/*.test.ts"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",
@@ -18,7 +19,13 @@
     "@types/better-sqlite3": "^7.6.11",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.7.0",
+    "@types/supertest": "^7.2.1",
+    "jest": "^30.5.2",
+    "jst": "^0.1.0",
+    "supertest": "^7.3.1",
+    "ts-jest": "^29.4.15",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   },

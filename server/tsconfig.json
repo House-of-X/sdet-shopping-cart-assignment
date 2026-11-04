@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "types": ["node","jest"],
+    "module": "nodenext",
+    "moduleResolution":"nodenext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "/src"
   },
-  "include": ["src", "scripts"]
+  "include": ["src", "scripts","tests"]
 }

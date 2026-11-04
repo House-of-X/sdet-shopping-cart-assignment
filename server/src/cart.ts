@@ -60,11 +60,14 @@ export async function getCart(): Promise<Cart> {
 }
 
 export async function addToCart(productId: number, quantity: unknown): Promise<Cart> {
-  if (typeof quantity !== 'number' || quantity < 0 || quantity > MAX_QUANTITY) {
+  if (typeof quantity !== 'number' || !Number.isInteger(quantity)|| quantity < 0 || quantity > MAX_QUANTITY) {
     throw new CartError(400, `Quantity must be between 1 and ${MAX_QUANTITY}`);
   }
 
   const product = (await db('products').where({ id: productId }).first()) as Product;
+  if(!product){
+    throw new CartError(404, 'No Product with this ProductId');
+  }
   if (product.stock === 0) {
     throw new CartError(400, 'Product is unavailable');
   }
@@ -75,7 +78,7 @@ export async function addToCart(productId: number, quantity: unknown): Promise<C
   if (newQuantity > MAX_QUANTITY) {
     throw new CartError(400, `You can have at most ${MAX_QUANTITY} of this product in your cart`);
   }
-  if (quantity > product.stock) {
+  if (newQuantity > product.stock) {
     throw new CartError(400, 'Not enough stock');
   }
 
